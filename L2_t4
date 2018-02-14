@@ -1,0 +1,34 @@
+
+public class HW0 {
+	
+private static int[] nulElem(int[] arr){
+	
+	int[] res = new int[arr.length];
+	int n = 0; 
+	
+	for (int i = 0; i < arr.length; i++){
+		if (arr[i] == 0){
+			res[n] = i;
+			n++;
+		}
+	}
+	
+	int[] result = new int[n+1];
+	for (int i = 0; i < n+1; i++){
+		result[i] = res[i];
+	}
+	
+	return result;
+}
+
+public static void main(String[] args) {
+
+	int[] arr = {1, 12, 0, 23, 0, 30};
+	int[] arrRes = nulElem(arr);
+	
+	for (int x: arrRes){
+		System.out.println(x);
+	}
+	
+ }
+}
