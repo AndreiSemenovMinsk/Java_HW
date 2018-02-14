@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class HW0 {
+	
+private static int mltpl(int[] arr, int k){
+	
+	int result = 0;
+	
+	for (int num: arr){
+		if (num % k == 0) {
+			result += num;
+		}
+	}
+	return result;
+}
+
+public static void main(String[] args) {
+
+	int[] arr = {1, 12, 6, 23, 24, 30};
+	int k = 6;
+	System.out.println("Result " + mltpl(arr, k));
+ }
+}
