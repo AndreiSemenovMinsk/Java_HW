@@ -1,0 +1,28 @@
+
+public class HW0 {
+	
+public static void main(String[] args) {
+
+	int[][] intArr2 = {
+			{121,12,122}, 
+			{343, 34, 344}, 
+			{454, 45, 455}
+			};
+	
+	int sum = 0;
+	int mltp = 1;
+	int i = 0;
+	int j = 0;
+	
+	for (int[] xArr : intArr2){
+		for (int x : xArr){
+			
+			sum += x;
+			mltp*= x;
+			j++;
+		}
+		i++;
+	}
+		System.out.println("sum="+sum+" multiplication=" + mltp);	
+ }
+}
