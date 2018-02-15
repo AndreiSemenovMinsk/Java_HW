@@ -1,0 +1,20 @@
+
+public class HW0 {
+	
+public static void main(String[] args) {
+
+	int[][] intArr2 = {
+			{121,12,122}, 
+			{343, 34, 344}, 
+			{454, 45, 455}
+			};
+	
+	int[] x = intArr2[1];
+	
+	intArr2[1] = intArr2[2];
+	
+	intArr2[2] = x;
+
+	
+ }
+}
