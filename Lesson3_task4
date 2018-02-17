@@ -6,17 +6,23 @@ public int customerId;
 public String surname;
 public String name;
 public String secondName;
+public String address;
+public String creditCardNumber;
+public String accountNumber;
 
 Customer()
 {
 	id++;
 }
 
-public boolean setCustomer(String sN, String nM, String scndN){
+public boolean setCustomer(String sN, String nM, String scndN, String addr, String cCN, String aN){
 	this.customerId = id;
 	this.surname = sN;
 	this.name = nM;
 	this.secondName = scndN;
+	this.address = addr;
+	this.creditCardNumber = cCN;
+	this.accountNumber = aN;
 	return true;
 }
 
@@ -30,6 +36,7 @@ public String[] showCustomer(){
 }
 }
 
+
 public class Student {
 	
 public static int id;
@@ -37,17 +44,25 @@ public int studentId;
 public String surname;
 public String name;
 public String secondName;
+public String address;
+public String birthDate;
+public String phoneNumber;
+public int year;
 
 Student()
 {
 	id++;
 }
 
-public boolean setStudent(String sN, String nM, String scndN){
+public boolean setStudent(String sN, String nM, String scndN, String addr, String bD, String pN, int yR){
 	this.studentId = id;
 	this.surname = sN;
 	this.name = nM;
 	this.secondName = scndN;
+	this.address = addr;
+	this.birthDate = bD;
+	this.phoneNumber = pN;
+	this.year = yR;
 	return true;
 }
 
@@ -68,11 +83,11 @@ public class HW0 {
 public static void main(String[] args) {
 
 	Customer cstmr = new Customer();
-	cstmr.setCustomer("Pupkin", "Vasiliy", "Ivanovich");
+	cstmr.setCustomer("Pupkin", "Vasiliy", "Ivanovich",  "221b Baker Street", "3434 2132 1212 5454", "1213OLMP3014840000000840");
 	System.out.println(cstmr.getSurname());
 	
 	Customer cstmr2 = new Customer();
-	cstmr2.setCustomer("Pupkin2", "Vasiliy2", "Ivanovich2");
+	cstmr2.setCustomer("Pupkin2", "Vasiliy2", "Ivanovich2", "221b Baker Street", "3434 2132 1212 5454", "1213OLMP3014840000000840");
 	System.out.println(cstmr2.getSurname());
 	}
 
