@@ -1,0 +1,79 @@
+
+public class Customer {
+	
+public static int id;
+public int customerId;
+public String surname;
+public String name;
+public String secondName;
+
+Customer()
+{
+	id++;
+}
+
+public boolean setCustomer(String sN, String nM, String scndN){
+	this.customerId = id;
+	this.surname = sN;
+	this.name = nM;
+	this.secondName = scndN;
+	return true;
+}
+
+public String getSurname(){
+	return "#" + this.customerId+ "|" + this.surname;
+}
+
+public String[] showCustomer(){
+	String[] str = {this.surname, this.name, this.secondName};
+	return str;
+}
+}
+
+public class Student {
+	
+public static int id;
+public int studentId;
+public String surname;
+public String name;
+public String secondName;
+
+Student()
+{
+	id++;
+}
+
+public boolean setStudent(String sN, String nM, String scndN){
+	this.studentId = id;
+	this.surname = sN;
+	this.name = nM;
+	this.secondName = scndN;
+	return true;
+}
+
+public String getSurname(){
+	return "#" + this.studentId + "|" + this.surname;
+}
+
+public String[] showStudent(){
+	String[] str = {this.surname, this.name, this.secondName};
+	return str;
+}
+}
+
+
+
+public class HW0 {
+	
+public static void main(String[] args) {
+
+	Customer cstmr = new Customer();
+	cstmr.setCustomer("Pupkin", "Vasiliy", "Ivanovich");
+	System.out.println(cstmr.getSurname());
+	
+	Customer cstmr2 = new Customer();
+	cstmr2.setCustomer("Pupkin2", "Vasiliy2", "Ivanovich2");
+	System.out.println(cstmr2.getSurname());
+	}
+
+}
