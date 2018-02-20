@@ -1,0 +1,91 @@
+public class HW0 {
+	
+	public static void main(String[] args) {
+		
+		Abiturient[] abiturs = new Abiturient[15];
+		String[] nameAbitur = {"Petya", "Vasya", "Kostya", "Kolya", "Sasha", "Masha", "Ilya", "Igor", "Masha"};
+		int[] ballsExlnt = {10,9,8};
+		int[] ballsBad = {2,5,6};
+		
+		double[] avgBalls = new double[9];
+		int[] sortAbiturs = new int[9];
+		
+		for (int i = 0; i < 4; i++){
+			abiturs[i] = new Abiturient(ballsExlnt);
+		}
+		
+		for (int i = 4; i < 9; i++){
+			abiturs[i] = new Abiturient(ballsBad);
+		}
+		
+		for (int i = 0; i < 9; i++){
+			avgBalls[i] = abiturs[i].avgBalls();
+		}
+		
+		sortAbiturs = Sorter.sorter(avgBalls);
+		
+		for (int i = 0; i < 6; i++){
+			System.out.println("Applicant "+ nameAbitur[ sortAbiturs[i] ] +" enrolled");
+		}		
+	}
+}
+
+
+public class Sorter {
+	
+public static int[] sorter(double[] arr){
+	
+	int [] arrIndex = new int[arr.length];
+	
+	for (int i = 0; i < arr.length; i++)
+		arrIndex[i] = i;
+	
+	for (int i = arr.length - 1; i > 0; i--){
+		for (int j = 0; j < i; j++){
+			if (arr[j] < arr[j +1]){
+				double t = arr[j];
+				//System.out.println("arr["+(j + 1)+"] "+arr[j + 1]+"t"+t);
+				int tIndex = j;
+				arr[j] = arr[j + 1];
+				arrIndex[j] = arrIndex[j + 1];
+				arr[j + 1] = t;
+				arrIndex[j + 1] = tIndex;
+			}
+		}
+	}
+	
+	return arrIndex;
+}
+}
+
+
+
+public class Abiturient {
+	
+public int[] balls;
+public int group;
+
+Abiturient(int[] balls)
+{
+ this.balls = balls;
+}
+
+public double avgBalls()
+{
+	int n = 0;
+	int avg = 0; 
+	
+	for (int ball : this.balls){
+		avg = avg + ball;
+		n++;
+	}
+	
+	if (n == 0){	//System.out.println(0);
+		return 0;
+	}
+	else {			//System.out.println(avg/n);
+		return avg/n;
+	}
+	
+}
+}
