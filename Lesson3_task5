@@ -1,0 +1,41 @@
+
+public class Drob {
+	
+public int m;
+public int n;
+
+Drob(int m, int n)
+{
+ this.m = m;
+ this.n = n;
+}
+
+public double getValue()
+{
+	System.out.println(this.m + " " + this.n);
+	return (double) this.m / this.n;
+}
+}
+
+
+
+
+public class HW0 {
+	
+public static void main(String[] args) {
+
+	int n = 3;
+	Drob[] DrobList = new Drob[n];
+	
+	Drob drb;
+	
+	for (int i = 0; i < n; i++){
+	drb = new Drob(i, i+1);
+	DrobList[i] = drb;
+	}
+	
+	for (int i = 0; i < n; i++){
+	System.out.println(" DrobList["+i+"]=" +DrobList[i].getValue());
+	}	
+	}
+}
