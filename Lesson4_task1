@@ -1,0 +1,110 @@
+
+public class Student {
+	
+public int[] balls;
+public int group;
+
+Student(int[] balls)
+{
+ this.balls = balls;
+}
+
+public double avgBalls()
+{
+	int n = 0;
+	double avg = 0; 
+	
+	for (int ball : this.balls){
+		avg = avg + ball;
+		n++;
+	}
+	
+	if (n == 0){
+		return 0;
+	}
+	else {
+		return avg/n;
+	}
+	
+}
+}
+
+
+public class Group {
+	
+public static int id;
+public int num;
+private Student[] students;
+
+Group(Student[] stdnts)
+{
+	id++;
+	this.num = id;
+	this.students = stdnts;
+}
+
+public double avgBalls(){
+	int n = 0;
+	double avg = 0; 
+	
+	for (Student stud : this.students){
+		avg = avg + stud.avgBalls();
+		n++;
+	}
+	
+	if (n == 0){
+		return 0;
+	}
+	else {
+		return avg/n;
+	}
+}
+}
+
+
+
+public class HW0 {
+	
+	public static void main(String[] args) {
+		
+		Student[] students = new Student[15];
+		int[] ballsExlnt = {10,10,10};
+		int[] ballsBad = {2,5,6};
+		
+		for (int i = 0; i < 10; i++){
+			students[i] = new Student(ballsExlnt);
+		}
+		
+		for (int i = 10; i < 15; i++){
+			students[i] = new Student(ballsBad);
+		}
+		
+		Group grp = new Group(students);
+		
+		System.out.println("Average score of the group is " + grp.avgBalls());
+		int n = 0;
+		int numWiz = 0;
+		for (int i = 0; i < 15; i++){
+			System.out.println("Average score of "+i+" student is " + students[i].avgBalls());
+			
+			boolean wiz = true;
+			for (int ball : students[i].balls){
+				if (ball != 10){
+					wiz = false;
+				}
+				
+				if (ball == 2){
+					n++;
+					break;
+				}
+			}
+			
+			if (wiz){
+				numWiz++;
+			}
+			
+		}
+		System.out.println("Number of the students with 2 is " +n);
+		System.out.println("Number of the students only with 10 is " +numWiz);
+	}
+}
