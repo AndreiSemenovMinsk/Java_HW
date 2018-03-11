@@ -18,21 +18,21 @@ class Table {
 		}	
 }
 
-class MyThread1 extends Thread {
+class MyThread1 implements Runnable {
 	public void run(){
 		
 		Table.printTable(TestSynchronization.ThI, 1);
 	}
 }
 
-class MyThread2 extends Thread {
+class MyThread2 implements Runnable {
 	public void run(){
 		
 		Table.printTable(TestSynchronization.ThI, 2);
 	}
 }
 
-class MyThread3 extends Thread {
+class MyThread3 implements Runnable {
 	public void run(){
 		
 		Table.printTable(TestSynchronization.ThI, 3);
