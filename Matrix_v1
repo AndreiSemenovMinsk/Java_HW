@@ -1,0 +1,72 @@
+
+class Table {
+	
+	public static int[][] shMatrix = new int[4][4];
+	
+	synchronized static void printTable(int thNum, int i){	
+		
+		try{
+				int randI = thNum / 4;
+				int randJ = thNum % 4;
+				
+				System.out.println(randI+"*"+randJ);
+				
+				shMatrix[randI][randJ] = i;
+				TestSynchronization.ThI++;
+				
+			} catch(Exception e){}
+		}	
+}
+
+class MyThread1 extends Thread {
+	public void run(){
+		
+		Table.printTable(TestSynchronization.ThI, 1);
+	}
+}
+
+class MyThread2 extends Thread {
+	public void run(){
+		
+		Table.printTable(TestSynchronization.ThI, 2);
+	}
+}
+
+class MyThread3 extends Thread {
+	public void run(){
+		
+		Table.printTable(TestSynchronization.ThI, 3);
+	}
+}
+
+public class TestSynchronization{
+	
+	static int ThI = 0;
+	
+	public static void main(String t[]){
+		try{
+		while (TestSynchronization.ThI < 16){
+			
+		MyThread1 t1 = new MyThread1();
+		MyThread2 t2 = new MyThread2();
+		MyThread3 t3 = new MyThread3();
+		Thread tt1 = new Thread(t1);
+		Thread tt2 = new Thread(t2);
+		Thread tt3 = new Thread(t3);
+		tt1.start();
+		tt2.start();
+		tt3.start();
+		}
+		
+		Thread.sleep(100);
+		
+		for (int i = 0; i < 4; i++){
+			System.out.println();
+			for (int j = 0; j < 4; j++){
+				System.out.print(" "+Table.shMatrix[i][j]);
+			}			
+		}
+		System.out.println();
+		} catch (InterruptedException e){}
+	}
+}
